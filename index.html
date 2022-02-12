@@ -10,24 +10,27 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Syne+Tactile&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./style.css">
     <!-- ---LINKS--- -->
     <title>TodoList</title>
 </head>
 <body>
     <header class="py-5">
         <div class="container text-center">
-            <h1>TodoList By @Sriram2k4</h1>
+            <h1 class="text-warning">TodoList By @Sriram2k4</h1>
         </div>
     </header>
 
     <div class="container">
-        <form class="text-center">
-            <input type="text" class="mb-3 px-4 py-2"><br>
-            <button type='submit' class="todo-button">Submit</button>
+        <form class="text-center py-3 align-items-center">
+            <div class="d-flex justify-content-center">
+                <input type="text" class="form-control w-25">
+                <button type='submit' class="todo-button btn btn-warning"><i class="fa-solid fa-plus"></i></button>
+            </div>
         </form>
         <div class="todo-container">
             <ul class="todo-list">
-                
+
             </ul>
         </div>
     </div>

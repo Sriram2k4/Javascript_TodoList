@@ -1,7 +1,5 @@
 body{
-    background-image: url('background.jpg');
-    background-repeat: no-repeat;
-    background-size: 100vw;
+    background: linear-gradient(to right, #11998e, #38ef7d);
 }
 
 ul{

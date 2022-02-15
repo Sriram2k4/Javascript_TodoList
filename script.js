@@ -1,10 +1,11 @@
 const todoInput = document.querySelector('.todo-input');
 const todoButton = document.querySelector('.todo-button');
 const todoList = document.querySelector('.todo-list');
-const todoListItem = document.querySelector('.todo-list div');
+const todoFilter = document.querySelector('#todoFilter');
 
 todoButton.addEventListener('click',addTodo);
 todoList.addEventListener('click',deleteCheck);
+todoFilter.addEventListener('click',filterTodo);
 
 function addTodo(e){
     // Prevent Reloading
@@ -53,3 +54,51 @@ function deleteCheck(e){
         }, 1000);
     }
 }
+
+function filterTodo(e){
+    const todos = todoList.childNodes;
+    const value = e.target.value;
+
+    console.log(todos);
+    console.log(todos.length);
+
+    // console.log(todos[1].classList.contains('Done'));
+
+    for(let x=1;x<todos.length;x++){
+        switch(value){
+            case "all":
+                todos[x].classList.remove("d-none")
+                todos[x].classList.add('d-flex');
+                break;
+            case "completed":
+                if(todos[x].classList.contains('Done')){
+                    todos[x].classList.remove("d-none")
+                    todos[x].classList.add('d-flex');
+                }else{
+                    todos[x].classList.add('d-none');
+                }
+                break;
+            case "uncompleted":
+                if(!todos[x].classList.contains('Done')){
+                    todos[x].classList.remove("d-none")
+                    todos[x].classList.add('d-flex');
+                }else{
+                    todos[x].classList.add('d-none');
+                }
+                break;
+        }
+
+    }
+}
+
+// function filterTodo(e) {
+//     const target = e.target.value;
+//     const todoListItem = todoList.childNodes;
+//     todoListItem.forEach(function(variable){
+//     console.log(variable);
+//     if(variable.classList.contains("Done")){
+//         console.log("Atlast");
+//     }
+//     console.log(target);
+//     });
+// }

@@ -59,38 +59,35 @@ function deleteCheck(e){
 }
 
 function filterTodo(e){
-    const todos = todoList.childNodes;
-    const value = e.target.value;
+    let todos = todoList.children;
+    let value = e.target.value;
+    todos = Object.values(todos);
 
-    console.log(todos);
-    console.log(todos.length);
+     console.log(todos);
 
-    // console.log(todos[1].classList.contains('Done'));
-
-    for(let x=1;x<todos.length;x++){
+    todos.forEach(function(todo){
         switch(value){
             case "all":
-                todos[x].classList.remove("d-none")
+                todo.classList.remove("d-none")
                 break;
             case "completed":
-                if(todos[x].classList.contains('Done')){
-                    todos[x].classList.remove("d-none")
-                    todos[x].classList.add('d-flex');
+                if(todo.classList.contains('Done')){
+                    todo.classList.remove("d-none")
+                    todo.classList.add('d-flex');
                 }else{
-                    todos[x].classList.add('d-none');
+                    todo.classList.add('d-none');
                 }
                 break;
             case "uncompleted":
-                if(!todos[x].classList.contains('Done')){
-                    todos[x].classList.remove("d-none")
-                    todos[x].classList.add('d-flex');
+                if(!todo.classList.contains('Done')){
+                    todo.classList.remove("d-none")
+                    todo.classList.add('d-flex');
                 }else{
-                    todos[x].classList.add('d-none');
+                    todo.classList.add('d-none');
                 }
                 break;
         }
-
-    }
+    });
 }
 
 function saveToLocalStorage(value){
